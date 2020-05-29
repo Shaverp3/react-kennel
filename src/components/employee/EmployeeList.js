@@ -9,6 +9,16 @@ class EmployeeList extends Component {
         employees: [],
     }
 
+deleteEmployee = id => {
+    EmployeeManager.delete(id)
+    .then(EmployeeManager.getAll)
+    .then((newemployees) => {
+        this.setState({
+            employees: newemployees
+        })
+    })
+  }
+  
 componentDidMount(){
     console.log("EMPLOYEE LIST: ComponentDidMount");
     //getAll from EmployeeManager and hang on to that data; put it in state
@@ -26,7 +36,10 @@ render(){
 
     return(
         <div className="container-cards">
-            {this.state.employees.map(currentEmployeeInLoop => <EmployeeCard key={currentEmployeeInLoop.id} employeeProp={currentEmployeeInLoop}/>
+            {this.state.employees.map(currentEmployeeInLoop => <EmployeeCard
+               key={currentEmployeeInLoop.id}
+               employeeProp={currentEmployeeInLoop}
+               deleteEmployee={this.deleteEmployee}/>
             )}
         </div>
     )

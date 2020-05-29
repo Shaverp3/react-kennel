@@ -11,6 +11,8 @@ class EmployeeCard extends Component {
           </picture> */}
           <h3>Employee: <span className="card-employeename">{this.props.employeeProp.name}</span></h3>
           <p></p>
+          <button type="button" onClick={()=>
+            {this.props.deleteEmployee(this.props.employeeProp.id)}}>Terminate</button>
         </div>
       </div>
     );

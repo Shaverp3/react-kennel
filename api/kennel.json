@@ -1,23 +1,39 @@
 {
-    "animals": [
-        { "id": 1, "name": "Doodles", "breed": "Poodle"},
-        { "id": 2, "name": "Decker", "breed": "German Sheperd" },
-        { "id": 3, "name": "Esme", "breed": "Pitbull" }
-    ],
-
-    "employees": [
-        {"id": 1, "name": "Pat Shaver"},
-        {"id": 2, "name": "Charlotte Shaver"},
-        {"id": 3, "name": "Dilbert Cartoon"}
-    ],
-
-    "locations": [
-        {"id": 1, "name": "Nashville North"},
-        {"id": 2, "name": "Nashville South"}
-    ],
-
-    "owners": [
-        {"id": 1, "name": "Pat Shaver", "phone": "704-231-0969"},
-        {"id": 2, "name": "Charlotte Shaver", "phone": "304-690-0021"}
-    ]
+  "animals": [
+    {
+      "id": 1,
+      "name": "Doodles",
+      "breed": "Poodle",
+      "image": "/images/poodle.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Decker",
+      "breed": "German Sheperd",
+      "image": "/images/germanshepard.jpg"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Pat Shaver"
+    },
+    {
+      "id": 3,
+      "name": "Dilbert Cartoon"
+    }
+  ],
+  "locations": [
+    {
+      "id": 2,
+      "name": "Nashville South"
+    }
+  ],
+  "owners": [
+    {
+      "id": 2,
+      "name": "Charlotte Shaver",
+      "phone": "304-690-0021"
+    }
+  ]
 }

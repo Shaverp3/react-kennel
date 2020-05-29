@@ -9,6 +9,16 @@ class LocationList extends Component {
         locations: [],
     }
 
+deleteLocation = id => {
+    LocationManager.delete(id)
+    .then(LocationManager.getAll)
+    .then((newlocations) => {
+        this.setState({
+            locations: newlocations
+        })
+    })
+  }
+
 componentDidMount(){
     console.log("LOCATION LIST: ComponentDidMount");
     //getAll from EmployeeManager and hang on to that data; put it in state
@@ -26,7 +36,10 @@ render(){
 
     return(
         <div className="container-cards">
-            {this.state.locations.map(currentLocationInLoop => <LocationCard key={currentLocationInLoop.id} locationProp={currentLocationInLoop}/>
+            {this.state.locations.map(currentLocationInLoop => <LocationCard
+            key={currentLocationInLoop.id}
+            locationProp={currentLocationInLoop}
+            deleteLocation={this.deleteLocation}/>
             )}
         </div>
     )
