@@ -9,41 +9,42 @@ class LocationList extends Component {
         locations: [],
     }
 
-deleteLocation = id => {
-    LocationManager.delete(id)
-    .then(LocationManager.getAll)
-    .then((newlocations) => {
-        this.setState({
-            locations: newlocations
-        })
-    })
-  }
+    componentDidMount() {
+        console.log("LOCATION LIST: ComponentDidMount");
+        //getAll from EmployeeManager and hang on to that data; put it in state
+        LocationManager.getAll()
+            .then((locations) => {
+                console.log(locations)
+                this.setState({
+                    locations: locations
+                })
+            })
+    }
+    /*using .map instead of foreach*/
+    render() {
+        console.log("LOCATION LIST: Render");
 
-componentDidMount(){
-    console.log("LOCATION LIST: ComponentDidMount");
-    //getAll from EmployeeManager and hang on to that data; put it in state
-    LocationManager.getAll()
-    .then((locations) => {
-        console.log(locations)
-        this.setState({
-            locations: locations
-        })
-    })
-}
-/*using .map instead of foreach*/
-render(){
-    console.log("LOCATION LIST: Render");
+        return (
+            <>
+                <section className="section-content">
+                    <button type="button"
+                        className="btn"
+                        onClick={() => { this.props.history.push("/locations/new") }}>
+                        New Location
+                    </button>
+                </section>
 
-    return(
-        <div className="container-cards">
-            {this.state.locations.map(currentLocationInLoop => <LocationCard
-            key={currentLocationInLoop.id}
-            locationProp={currentLocationInLoop}
-            deleteLocation={this.deleteLocation}/>
-            )}
-        </div>
-    )
-}
+                <div className="container-cards">
+                    {this.state.locations.map(currentLocationInLoop => <LocationCard
+                        key={currentLocationInLoop.id}
+                        locationProp={currentLocationInLoop}
+                        //deleteLocation={this.deleteLocation}
+                        />
+                    )}
+                </div>
+            </>
+        )
+    }
 }
 
 export default LocationList

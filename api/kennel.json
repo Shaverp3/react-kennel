@@ -11,6 +11,22 @@
       "name": "Decker",
       "breed": "German Sheperd",
       "image": "/images/germanshepard.jpg"
+    },
+    {
+      "id": 3,
+      "name": "PSH",
+      "breed": "DoxieChon",
+      "image": "/images/PitBull.jpg"
+    },
+    {
+      "name": "Charlotte",
+      "breed": "Weener Dog",
+      "id": 5
+    },
+    {
+      "name": "Rain",
+      "breed": "Cat",
+      "id": 6
     }
   ],
   "employees": [
@@ -21,12 +37,22 @@
     {
       "id": 3,
       "name": "Dilbert Cartoon"
+    },
+    {
+      "name": "Joe Smith",
+      "id": 4
     }
   ],
   "locations": [
     {
       "id": 2,
-      "name": "Nashville South"
+      "name": "Nashville South",
+      "address": "1940 Lincoln Avenue"
+    },
+    {
+      "name": "Elk City",
+      "address": "1500 West Washington St.",
+      "id": 3
     }
   ],
   "owners": [
@@ -34,6 +60,11 @@
       "id": 2,
       "name": "Charlotte Shaver",
       "phone": "304-690-0021"
+    },
+    {
+      "name": "Pat Shaver",
+      "phone": "704-231-0969",
+      "id": 3
     }
   ]
 }

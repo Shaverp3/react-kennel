@@ -9,41 +9,51 @@ class EmployeeList extends Component {
         employees: [],
     }
 
-deleteEmployee = id => {
-    EmployeeManager.delete(id)
-    .then(EmployeeManager.getAll)
-    .then((newemployees) => {
-        this.setState({
-            employees: newemployees
-        })
-    })
-  }
-  
-componentDidMount(){
-    console.log("EMPLOYEE LIST: ComponentDidMount");
-    //getAll from EmployeeManager and hang on to that data; put it in state
-    EmployeeManager.getAll()
-    .then((employees) => {
-        console.log(employees)
-        this.setState({
-            employees: employees
-        })
-    })
-}
-/*using .map instead of foreach*/
-render(){
-    console.log("EMPLOYEE LIST: Render");
+    deleteEmployee = id => {
+        EmployeeManager.delete(id)
+            .then(EmployeeManager.getAll)
+            .then((newemployees) => {
+                this.setState({
+                    employees: newemployees
+                })
+            })
+    }
 
-    return(
-        <div className="container-cards">
-            {this.state.employees.map(currentEmployeeInLoop => <EmployeeCard
-               key={currentEmployeeInLoop.id}
-               employeeProp={currentEmployeeInLoop}
-               deleteEmployee={this.deleteEmployee}/>
-            )}
-        </div>
-    )
-}
+    componentDidMount() {
+        console.log("EMPLOYEE LIST: ComponentDidMount");
+        //getAll from EmployeeManager and hang on to that data; put it in state
+        EmployeeManager.getAll()
+            .then((employees) => {
+                console.log(employees)
+                this.setState({
+                    employees: employees
+                })
+            })
+    }
+    /*using .map instead of foreach*/
+    render() {
+        console.log("EMPLOYEE LIST: Render");
+
+        return (
+            <>
+                <section className="section-content">
+                    <button type="button"
+                        className="btn"
+                        onClick={() => { this.props.history.push("/employees/new") }}>
+                        New Employee
+                    </button>
+                </section>
+                
+                <div className="container-cards">
+                    {this.state.employees.map(currentEmployeeInLoop => <EmployeeCard
+                        key={currentEmployeeInLoop.id}
+                        employeeProp={currentEmployeeInLoop}
+                        deleteEmployee={this.deleteEmployee} />
+                    )}
+                </div>
+            </>
+        )
+    }
 }
 
 export default EmployeeList

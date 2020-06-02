@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './Animal.css'
+import { Link } from "react-router-dom";
 
 class AnimalCard extends Component {
   render() {
-      //console.log("this is current animal is the loop", this.props.animalProp)
+    //console.log("this is current animal is the loop", this.props.animalProp)
     return (
       <div className="card">
         <div className="card-content">
@@ -12,8 +13,7 @@ class AnimalCard extends Component {
           </picture>}
           <h3>Name: <span className="card-petname">{this.props.animalProp.name}</span></h3>
           <p>Breed: {this.props.animalProp.breed}</p>
-          <button type="button" onClick={()=>
-          this.props.deleteAnimal(this.props.animalProp.id)}>Discharge</button>
+          <Link to={`/animals/${this.props.animalProp.id}`}><button>Details</button></Link>
         </div>
       </div>
     );
