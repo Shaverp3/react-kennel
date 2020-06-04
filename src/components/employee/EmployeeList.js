@@ -48,7 +48,8 @@ class EmployeeList extends Component {
                     {this.state.employees.map(currentEmployeeInLoop => <EmployeeCard
                         key={currentEmployeeInLoop.id}
                         employeeProp={currentEmployeeInLoop}
-                        deleteEmployee={this.deleteEmployee} />
+                        deleteEmployee={this.deleteEmployee}
+                        {...this.props} />
                     )}
                 </div>
             </>

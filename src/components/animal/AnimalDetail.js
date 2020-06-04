@@ -46,8 +46,12 @@ class AnimalDetail extends Component {
           </picture>
           <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
           <p>Breed: {this.state.breed}</p>
-          <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Discharge</button>
-        </div>
+          <button type="button"
+          disabled={this.state.loadingStatus}
+          onClick={this.handleDelete}>Discharge</button>
+          <button type="button"
+          onClick={() => {this.props.history.push(`/animals/${this.props.animalId}/edit`)}}>Edit</button>
+          </div>
       </div>
     );
   }
